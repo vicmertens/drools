@@ -94,7 +94,7 @@ object SepsisStream {
       countMatrix.show()
 
       //opentsdb update statistics
-      countMatrix.foreach(row => { tsdbUpdater.loadPatientStats(row) })
+      //countMatrix.foreach(row => { tsdbUpdater.loadPatientStats(row) })
 
     })
 
