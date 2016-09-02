@@ -28,14 +28,13 @@ To Run (This has been tested on a CDH5.4 cluster):
 
 4. Start spark streaming using
 
-	spark-submit --driver-java-options 
-		'-Dspark.executor.extraClassPath=/opt/cloudera/parcels/CDH/lib/hbase/lib/htrace-core-3.1.0-incubating.jar' 
-		--master yarn-client 
-		--files sepsis.xls 
-		--class com.cloudera.sprue.SepsisStream 
-		/path_to/sprue-0.0.1-SNAPSHOT-jar-with-dependencies.jar 
-		sepsis.xls zookeeper.host.domain:2181 
+	spark-submit \
+		--master yarn-client \
+		--files sepsis.xls   \
+		--class com.cloudera.sprue.SepsisStream \ 
+		/home/cloudera/drools/target/sprue-0.0.1-SNAPSHOT-jar-with-dependencies.jar \
+		sepsis.xls zookeeper.host.domain:2181
 		http://opentsdb.host.domain:4242/api/put
 
-	The spark.executor.extraClassPath option is a classpath workaround for spark on hbase on cdh5.4
+	The spark.executor.extraClassPath option is a classpath workaround for spark on hbase on cdh5.5
 	The files option uploads the xls file to the spark executors
